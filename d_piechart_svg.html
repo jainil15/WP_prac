@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    body{
+      font-family: "Source Serif Pro";
+    }
+
+    circle{
+      border: 2px solid black;
+
+    }
+    text{
+      font-size: 0.7rem;
+    }
+
+    .heading {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <svg width="400" viewBox="0 0 400 400">
+    <text x="160" y="80" class="heading">PIE CHART</text>
+    <circle cx="200" cy="200" r="50" stroke="red" stroke-width="100" stroke-dasharray="10 1000" fill="none" />
+
+    <circle cx="200" cy="200" r="50" stroke="yellow" stroke-width="100" stroke-dasharray="50 1000" stroke-dashoffset="-10" fill="none"/>
+    <circle cx="200" cy="200" r="50" stroke="blue" stroke-width="100" stroke-dasharray="75 1000" stroke-dashoffset="-60" fill="none"/>
+    <circle cx="200" cy="200" r="50" stroke="magenta" stroke-width="100" stroke-dasharray="180 1000" stroke-dashoffset="-135" fill="none"/>
+
+    <text x="184" y="167">Coal</text>
+    <text x="165" y="255">Oil</text>
+    <text x="240" y="250">Biofuel</text>
+    <text x="250" y="210">Others</text>
+
+  </svg>
+</body>
+</html>
