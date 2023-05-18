@@ -1,0 +1,68 @@
+{
+  "countries": [
+    {
+      "name": "China",
+      "population": 1444216107
+    },
+    {
+      "name": "India",
+      "population": 1393409038
+    },
+    {
+      "name": "United States",
+      "population": 332915073
+    },
+    {
+      "name": "Indonesia",
+      "population": 276361783
+    },
+    {
+      "name": "Pakistan",
+      "population": 225199937
+    },
+    {
+      "name": "Brazil",
+      "population": 213993437
+    },
+    {
+      "name": "Nigeria",
+      "population": 211400708
+    },
+    {
+      "name": "Bangladesh",
+      "population": 166303498
+    },
+    {
+      "name": "Russia",
+      "population": 145912025
+    },
+    {
+      "name": "Mexico",
+      "population": 130262216
+    },
+    {
+      "name": "Japan",
+      "population": 125836021
+    },
+    {
+      "name": "Ethiopia",
+      "population": 121880292
+    },
+    {
+      "name": "Philippines",
+      "population": 110589623
+    },
+    {
+      "name": "Egypt",
+      "population": 106683891
+    },
+    {
+      "name": "Vietnam",
+      "population": 97429061
+    },
+    {
+      "name": "Others",
+      "population": 2645360669
+    }
+  ]
+}

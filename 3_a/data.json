@@ -1,0 +1,40 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "department": "IT",
+      "salary": 75000,
+      "hireDate": "2022-01-15"
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "department": "Marketing",
+      "salary": 65000,
+      "hireDate": "2021-06-30"
+    },
+    {
+      "id": 3,
+      "name": "Tom Johnson",
+      "department": "Finance",
+      "salary": 85000,
+      "hireDate": "2022-03-01"
+    },
+    {
+      "id": 4,
+      "name": "Emily Wilson",
+      "department": "Human Resources",
+      "salary": 70000,
+      "hireDate": "2020-12-15"
+    },
+    {
+      "id": 5,
+      "name": "Mike Brown",
+      "department": "Operations",
+      "salary": 80000,
+      "hireDate": "2021-09-01"
+    }
+
+  ]
+}

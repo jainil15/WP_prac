@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js" integrity="sha512-FJ2OYvUIXUqCcPf1stu+oTBlhn54W0UisZB/TNrZaVMHHhYvLBV9jMbvJYtvDe5x/WVaoXZ6KB+Uqe5hT2vlyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<div id="chartContainer"></div>
+<canvas id="canvas"></canvas>
+<script>
+    window.onload = function () {
+        $.getJSON("salesd.json", function(salesData) {
+            let datap = []
+            $.each(salesData, function(k,v) {
+                datap.push({x: new Date(`1-${salesData[k]['Month']}-2022`), y: salesData[k]['Sales']})
+            })
+            console.log(datap)
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                exportEnabled: true,
+                theme: "light1",
+                title:{
+                    text: "A Single Line Chart"
+                },
+                axisY: {
+                    title: "Sales",
+                    includeZero: true
+                },
+                legend: {
+                    cursor: "pointer",
+                },
+                data: [
+                    {
+                        type: "line",
+                        showInLegend: true,
+                        name: "Sales",
+                        color: "tomato",
+                        dataPoints: datap
+                    },
+                ]
+            });
+            chart.render();
+        })
+
+    }
+</script>
+</body>
+</html>

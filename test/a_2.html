@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        *{
+            font-family: "Lucida Sans";
+        }
+        #main-table table{
+            text-align: center;
+            margin: auto;
+            width: 55%;
+        }
+        th{
+            background-color: #cccccc;
+        }
+        tr:nth-child(2n+1) {
+            background-color: #c2d5e5;
+        }
+        table, td, th{
+            padding: 0.7rem;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+  <div id="main-table">
+  </div>
+  <script>
+    $(document).ready(function() {
+      $.get("colors.txt", function(data) {
+          let html = ""
+
+          let headers = data.split("\n")[0].split(",")
+          html += "<table><tr>"
+          for (const headersKey in headers) {
+            html += "<th>"+headers[headersKey]+"</th>"
+          }
+          let maindata = data.split("\n").splice(1)
+          for (const maindataKey in maindata) {
+              let tempdata = maindata[maindataKey].split(',')
+              html += "<tr>"
+              for (const tempdataKey in tempdata) {
+                  html += "<td>"+tempdata[tempdataKey]+"</td>"
+              }
+              html += "</tr>"
+          }
+          html += "</tr></table>"
+          $("#main-table").html(html)
+      })
+    })
+  </script>
+</body>
+</html>

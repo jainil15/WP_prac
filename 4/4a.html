@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+
+        google.charts.load('current', {'packages':['corechart']});
+
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            let arrayData = [
+                ['Item', 'Value', {role: 'style'}],
+                ['Apples', 25, '#E53935'],
+                ['Bananas', 43, '#8E24AA'],
+                ['Carrots', 12, '#1E88E5'],
+                ['Durian', 31, '#43A047'],
+                ['Eggs', 19, '#F4511E'],
+                ['Fish', 36, '#FFEB3B'],
+                ['Grapes', 8, '#00ACC1'],
+                ['Honey', 50, '#9C27B0'],
+                ['Ice cream', 15, '#009688'],
+                ['Jam', 28, '#FF5722']
+            ];
+            var data = new google.visualization.arrayToDataTable(arrayData);
+
+            // Set chart options
+            var options = {
+                title: 'Fruits Bar Chart',
+                width: 600,
+                height: 400
+            };
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart_div"></div>
+</body>
+</html>

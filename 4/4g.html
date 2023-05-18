@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlBoiUX-Ewy8CFQI3HJUsTWxNGV0uheRM"></script>
+    <script>
+        function initMap() {
+            fetch('locgeo.json')
+                .then(response=>response.json())
+                .then(data=> {
+                    const map = new google.maps.Map(document.getElementById('map'), {
+                        center: { lat: 0, lng: -75},
+                        zoom: 10
+                    })
+                    data.forEach(location=> {
+                        new google.maps.Marker({
+                            position: {lat: location.lat, lng: location.lng},
+                            map: map,
+                            title: location.name
+                        })
+                    })
+                })
+                .catch(error=>console.error('Error loading JSON', error))
+        }
+    </script>
+</head>
+<body onload="initMap()">
+<div id="map"></div>
+</body>
+</html>

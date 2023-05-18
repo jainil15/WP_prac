@@ -1,0 +1,16 @@
+Color, Values
+Red, 10
+Green, 20
+Blue, 40
+Orange, 40
+Red, 10
+Green, 20
+Blue, 40
+Orange, 40
+Red, 10
+Green, 20
+Blue, 40
+Orange, 40
+
+
+

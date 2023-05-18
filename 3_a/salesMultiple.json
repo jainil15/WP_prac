@@ -1,0 +1,72 @@
+{
+  "2019": [
+    {"Date": "1-Jan-2019", "Sales": 250},
+    {"Date": "1-Feb-2019", "Sales": 280},
+    {"Date": "1-Mar-2019", "Sales": 210},
+    {"Date": "1-Apr-2019", "Sales": 110},
+    {"Date": "1-May-2019", "Sales": 210},
+    {"Date": "1-Jun-2019", "Sales": 250},
+    {"Date": "1-Jul-2019", "Sales": 250},
+    {"Date": "1-Aug-2019", "Sales": 200},
+    {"Date": "1-Sep-2019", "Sales": 280},
+    {"Date": "1-Oct-2019", "Sales": 320},
+    {"Date": "1-Nov-2019", "Sales": 250},
+    {"Date": "1-Dec-2019", "Sales": 320}
+  ],
+  "2020": [
+    {"Date": "1-Jan-2020", "Sales": 400},
+    {"Date": "1-Feb-2020", "Sales": 420},
+    {"Date": "1-Mar-2020", "Sales": 400},
+    {"Date": "1-Apr-2020", "Sales": 430},
+    {"Date": "1-May-2020", "Sales": 410},
+    {"Date": "1-Jun-2020", "Sales": 240},
+    {"Date": "1-Jul-2020", "Sales": 460},
+    {"Date": "1-Aug-2020", "Sales": 440},
+    {"Date": "1-Sep-2020", "Sales": 450},
+    {"Date": "1-Oct-2020", "Sales": 480},
+    {"Date": "1-Nov-2020", "Sales": 560},
+    {"Date": "1-Dec-2020", "Sales": 520}
+  ],
+  "2021": [
+    {"Date": "1-Jan-2021", "Sales": 500},
+    {"Date": "1-Feb-2021", "Sales": 530},
+    {"Date": "1-Mar-2021", "Sales": 550},
+    {"Date": "1-Apr-2021", "Sales": 520},
+    {"Date": "1-May-2021", "Sales": 560},
+    {"Date": "1-Jun-2021", "Sales": 540},
+    {"Date": "1-Jul-2021", "Sales": 580},
+    {"Date": "1-Aug-2021", "Sales": 600},
+    {"Date": "1-Sep-2021", "Sales": 570},
+    {"Date": "1-Oct-2021", "Sales": 600},
+    {"Date": "1-Nov-2021", "Sales": 620},
+    {"Date": "1-Dec-2021", "Sales": 640}
+  ],
+  "2022": [
+    {"Date": "1-Jan-2022", "Sales": 620},
+    {"Date": "1-Feb-2022", "Sales": 650},
+    {"Date": "1-Mar-2022", "Sales": 670},
+    {"Date": "1-Apr-2022", "Sales": 640},
+    {"Date": "1-May-2022", "Sales": 680},
+    {"Date": "1-Jun-2022", "Sales": 660},
+    {"Date": "1-Jul-2022", "Sales": 700},
+    {"Date": "1-Aug-2022", "Sales": 720},
+    {"Date": "1-Sep-2022", "Sales": 690},
+    {"Date": "1-Oct-2022", "Sales": 720},
+    {"Date": "1-Nov-2022", "Sales": 750},
+    {"Date": "1-Dec-2022", "Sales": 780}
+  ],
+  "2023": [
+    {"Date": "1-Jan-2023", "Sales": 760},
+    {"Date": "1-Feb-2023", "Sales": 790},
+    {"Date": "1-Mar-2023", "Sales": 820},
+    {"Date": "1-Apr-2023", "Sales": 800},
+    {"Date": "1-May-2023", "Sales": 840},
+    {"Date": "1-Jun-2023", "Sales": 820},
+    {"Date": "1-Jul-2023", "Sales": 860},
+    {"Date": "1-Aug-2023", "Sales": 880},
+    {"Date": "1-Sep-2023", "Sales": 850},
+    {"Date": "1-Oct-2023", "Sales": 880},
+    {"Date": "1-Nov-2023", "Sales": 910},
+    {"Date": "1-Dec-2023", "Sales": 940}
+  ]
+}

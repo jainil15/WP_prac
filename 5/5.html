@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin="anonymous"
+            integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+            referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+<div id="chart_div"></div>
+    <script>
+        $(document).ready(function() {
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                $.get("./WorldPopulationdata.csv", function (data) {
+                    let csvData = $.csv.toObjects(data)
+                    console.log(csvData)
+                    let populationData = [['Year', 'Population']]
+                    for (const csvDataKey in csvData) {
+
+                        if (csvData[csvDataKey][''] === 'India' && csvData[csvDataKey]['Series'] === 'Population mid-year estimates (millions)') {
+                            console.log(csvData[csvDataKey], csvData[csvDataKey]['Value'])
+                            populationData.push([csvData[csvDataKey]['Year'], parseFloat(csvData[csvDataKey]['Value'].replaceAll(',',''))])
+                        }
+
+                    }
+
+
+                    console.log(populationData)
+
+
+                    var data2 = new google.visualization.arrayToDataTable(populationData);
+
+                    // Set chart options
+                    var options = {
+                        title: 'Fruits Bar Chart',
+                        width: 600,
+                        height: 400
+                    };
+
+                    // Instantiate and draw the chart.
+                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+                    chart.draw(data2, options);
+
+                })
+            }
+        })
+
+    </script>
+</body>
+</html>

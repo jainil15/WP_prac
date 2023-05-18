@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Column Chart D3.js</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        #chart-container {
+            width: 600px;
+            height: 500px;
+            border: 1px solid #ccc;
+            margin: 20px;
+            padding: 10px;
+            background-color: rgb(153, 105, 214, 0.2);
+        }
+
+        g {
+            font-family: "Lucida Sans";
+            font-size: 0.8rem;
+        }
+
+        .grid line {
+            stroke: grey;
+            stroke-opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<div id="chart-container"></div>
+
+
+
+<script>
+    const data = [
+        { label: 'Category 1', value: 10 },
+        { label: 'Category 2', value: 20 },
+        { label: 'Category 3', value: 15 },
+        { label: 'Category 4', value: 25 },
+        { label: 'Category 5', value: 18 }
+    ];
+
+    const width = 600;
+    const height = 500;
+    const margin = { top: 10, right: 20, bottom: 40, left: 40 };
+    const chartWidth = width - margin.left - margin.right;
+    const chartHeight = height - margin.top - margin.bottom;
+
+    const svg = d3.select('#chart-container')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+
+    const chart = svg.append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`);
+
+    const xScale = d3.scaleBand()
+        .domain(data.map(d => d.label))
+        .range([0, chartWidth])
+        .padding(0.2);
+
+    const yScale = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.value)])
+        .range([chartHeight, 0]);
+
+    const xAxis = d3.axisBottom(xScale);
+    const yAxis = d3.axisLeft(yScale);
+
+    chart.append('g')
+        .attr('transform', `translate(0,${chartHeight})`)
+        .call(xAxis);
+
+    chart.append('g')
+        .call(yAxis);
+
+    chart.append('g')
+        .attr('class', 'grid')
+        .attr('transform', `translate(0,${chartHeight})`)
+        .call(d3.axisBottom(xScale)
+            .tickSize(-chartHeight)
+            .tickFormat(''));
+
+    chart.append('g')
+        .attr('class', 'grid')
+        .call(d3.axisLeft(yScale)
+            .tickSize(-chartWidth)
+            .tickFormat(''));
+
+    chart.selectAll('.bar')
+        .data(data)
+        .enter()
+        .append('rect')
+        .attr('class', 'bar')
+        .attr('x', d => xScale(d.label))
+        .attr('y', d => yScale(d.value))
+        .attr('width', xScale.bandwidth())
+        .attr('height', d => chartHeight - yScale(d.value))
+        .attr('fill', (d, i) => {
+            const colors = ['#FF7F0E', '#1F77B4', '#FFBB78', '#2CA02C', '#D62728'];
+            return colors[i % colors.length];
+        })
+        .attr('stroke', 'none');
+</script>
+</body>
+</html>

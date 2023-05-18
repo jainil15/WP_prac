@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <script crossorigin="anonymous"
+            integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+            referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js"></script>
+
+    <title>Document</title>
+    <style>
+        #main-table {
+            font-family: "Roboto Mono";
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: rgba(155, 219, 232, 0.68);
+        }
+
+        th, td {
+            padding: 0.3rem;
+        }
+
+        tr:nth-child(2n+1) {
+            background-color: rgba(204, 204, 204, 0.51);
+        }
+    </style>
+</head>
+<body>
+<table border="1" id="main-table">
+</table>
+<script>
+    $(document).ready(function () {
+        $.get("data.csv", function (data) {
+            let x = $.csv.toObjects(data);
+            let html = createTable(x)
+            $("#main-table").html(html)
+        })
+    })
+
+    function createTable(data) {
+        let html = ""
+        html += "<tr>"
+        for (const dataKey in data[0]) {
+            html += "<th>" + dataKey + "</th>"
+        }
+        html += "</tr>"
+        for (const dataKey in data) {
+            html += "<tr>"
+            for (const dataKeyKey in data[dataKey]) {
+                html += "<td>" + data[dataKey][dataKeyKey] + "</td>"
+            }
+            html += "</tr>"
+        }
+        return html
+    }
+</script>
+</body>
+</html>

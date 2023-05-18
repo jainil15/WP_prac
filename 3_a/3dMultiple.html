@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js" integrity="sha512-FJ2OYvUIXUqCcPf1stu+oTBlhn54W0UisZB/TNrZaVMHHhYvLBV9jMbvJYtvDe5x/WVaoXZ6KB+Uqe5hT2vlyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<div id="chartContainer"></div>
+<script>
+    window.onload = function () {
+        $.getJSON("salesMultiple.json", function(salesData) {
+            let arrData = []
+
+            $.each(salesData, function(k,v) {
+                let tempdata = []
+                $.each(salesData[k], function (k1, v1) {
+
+                    tempdata.push({x: new Date(salesData[k][k1]['Date'].slice(0, salesData[k][k1]['Date'].length-5) + "2020"), y: salesData[k][k1]['Sales']})
+                })
+                arrData.push(tempdata)
+            })
+            console.log(arrData)
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                exportEnabled: true,
+                theme: "light1",
+                title:{
+                    text: "Multiple Line Chart"
+                },
+                axisY: {
+                    title: "Sales",
+                    includeZero: true
+                },
+                axisX: {
+                    valueFormatString: "DD MMM"
+                },
+                legend: {
+                    cursor: "pointer",
+                    itemclick: toggleDataSeries
+                },
+                data: [
+                    {
+                        type: "line",
+                        showInLegend: true,
+                        name: "2019",
+                        color: "#ADD8E6",
+                        dataPoints: arrData[0]
+                    },
+                    {
+                        type: "line",
+                        showInLegend: true,
+                        name: "2020",
+                        color: "#87CEEB",
+                        dataPoints: arrData[1]
+                    },
+                    {
+                        type: "line",
+                        showInLegend: true,
+                        name: "2021",
+                        color: "#87CEFA",
+                        dataPoints: arrData[2]
+                    },
+                    {
+                        type: "line",
+                        showInLegend: true,
+                        name: "2022",
+                        color: "#4682B4",
+                        dataPoints: arrData[3]
+                    },
+                    {
+                        type: "line",
+                        showInLegend: true,
+                        name: "2023",
+                        color: "#00008B",
+                        dataPoints: arrData[4]
+                    },
+                ]
+            });
+            chart.render();
+            function toggleDataSeries(e) {
+                if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                    e.dataSeries.visible = false;
+                } else{
+                    e.dataSeries.visible = true;
+                }
+                chart.render();
+            }
+        })
+
+    }
+</script>
+</body>
+</html>

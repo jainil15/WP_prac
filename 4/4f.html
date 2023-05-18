@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ["Country", "Size (in square kilometers)", "GDP (in billions USD)", "AvgIncome", "Population (in millions)"],
+                ["United States", 9.83, 21.43, 62000, 331],
+                ["China", 9.59, 16.64, 10400, 1440],
+                ["Japan", 0.37, 5.15, 41800, 126],
+                ["Germany", 0.36, 4.00, 53300, 83],
+                ["United Kingdom", 0.24, 3.02, 43000, 67],
+                ["France", 0.55, 2.94, 41200, 66],
+                ["Italy", 0.30, 2.13, 38300, 60],
+                ["Canada", 9.98, 1.64, 45400, 38],
+                ["Australia", 7.68, 1.38, 52200, 26],
+                ["South Korea", 0.10, 1.62, 34100, 51],
+                ["Brazil", 8.51, 2.05, 10000, 213],
+                ["India", 3.29, 3.05, 2200, 1393],
+                ["Russia", 17.13, 1.70, 11400, 146],
+                ["Mexico", 1.96, 1.27, 9400, 129],
+                ["South Africa", 1.22, 0.38, 6400, 60]
+            ]);
+
+            var options = {
+                title: "Country Data",
+                width: 1000,
+                height: 800,
+                colorAxis: {
+                    colors: ['red', 'blue']},
+                vAxis: {
+                    textStyle: {
+                        color: "#000000"
+                    },
+                    title: 'GDP (in billion USD)',
+                    gridlines: {color: '#332d2d', minSpacing: 60},
+                },
+                hAxis: {
+                    textStyle: {
+                        color: "#000000"
+                    },
+                    gridlines: {color: '#000000', minSpacing: 80},
+                    title:"Country size in (Square KM)"
+                },
+                backgroundColor: {
+                    fill:"rgb(222,228,238)"
+                },
+                bubble: {
+                    stroke:"#000000",
+                    opacity: 0.8
+                },
+                chartArea: {
+                    backgroundColor: {
+                        fill: "#eef8ff"
+                    }
+                },
+                textStyle: {
+                    color: "#000000"
+                }
+            };
+
+            var chart = new google.visualization.BubbleChart(document.getElementById('bubble_chart'));
+            chart.draw(data, options);
+        }
+    </script>
+
+
+</head>
+<body>
+<div id="bubble_chart"></div>
+</body>
+</html>

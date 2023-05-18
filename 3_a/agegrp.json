@@ -1,0 +1,74 @@
+{
+  "data": [
+    {
+      "Year": "2020",
+      "Baby Boomers": 100000,
+      "Millennials": 200000,
+      "Zoomers": 150000,
+      "Generation Alpha": 50000
+    },
+    {
+      "Year": "2021",
+      "Baby Boomers": 95000,
+      "Millennials": 205000,
+      "Zoomers": 160000,
+      "Generation Alpha": 55000
+    },
+    {
+      "Year": "2022",
+      "Baby Boomers": 90000,
+      "Millennials": 210000,
+      "Zoomers": 170000,
+      "Generation Alpha": 60000
+    },
+    {
+      "Year": "2023",
+      "Baby Boomers": 85000,
+      "Millennials": 215000,
+      "Zoomers": 180000,
+      "Generation Alpha": 65000
+    },
+    {
+      "Year": "2024",
+      "Baby Boomers": 80000,
+      "Millennials": 220000,
+      "Zoomers": 190000,
+      "Generation Alpha": 70000
+    },
+    {
+      "Year": "2025",
+      "Baby Boomers": 75000,
+      "Millennials": 225000,
+      "Zoomers": 200000,
+      "Generation Alpha": 75000
+    },
+    {
+      "Year": "2026",
+      "Baby Boomers": 70000,
+      "Millennials": 230000,
+      "Zoomers": 210000,
+      "Generation Alpha": 80000
+    },
+    {
+      "Year": "2027",
+      "Baby Boomers": 65000,
+      "Millennials": 235000,
+      "Zoomers": 220000,
+      "Generation Alpha": 85000
+    },
+    {
+      "Year": "2028",
+      "Baby Boomers": 60000,
+      "Millennials": 240000,
+      "Zoomers": 230000,
+      "Generation Alpha": 90000
+    },
+    {
+      "Year": "2029",
+      "Baby Boomers": 55000,
+      "Millennials": 245000,
+      "Zoomers": 240000,
+      "Generation Alpha": 95000
+    }
+  ]
+}

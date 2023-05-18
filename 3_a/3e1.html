@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js" integrity="sha512-FJ2OYvUIXUqCcPf1stu+oTBlhn54W0UisZB/TNrZaVMHHhYvLBV9jMbvJYtvDe5x/WVaoXZ6KB+Uqe5hT2vlyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        #chartContainer1, #chartContainer2 {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chartContainer1"></div>
+
+
+<script>
+    window.onload = function () {
+        $.getJSON("pop15.json", function(popData) {
+            let datap = []
+            let total = 0
+            popData = popData.countries
+            $.each(popData, function(k,v) {
+                total += popData[k]['population']
+                datap.push({name: popData[k]['name'], y: popData[k]['population']})
+            })
+
+
+
+            let chart1 = new CanvasJS.Chart("chartContainer1", {
+                animationEnabled: true,
+                exportEnabled: true,
+                theme: "light1",
+                title:{
+                    text: "Country Population"
+                },
+
+                legend: {
+                    cursor: "pointer",
+                },
+                data: [
+                    {
+                        type: "pie",
+                        showInLegend: true,
+                        toolTipContent: "<b>{name}:</b> {y} (#percent%)",
+                        indexLabel: "{name}",
+                        dataPoints: datap
+                    },
+                ]
+            });
+            chart1.render();
+
+        })
+    }
+</script>
+</body>
+</html>

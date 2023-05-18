@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Product', 'Sales'],
+                ['Smartphone', 2500],
+                ['Laptop', 1500],
+                ['Television', 3000],
+                ['Headphones', 2000],
+                ['Smartwatch', 1000]
+            ]);
+
+            var options = {
+                title: 'Sales Pie Chart',
+                width: 1000,
+                height: 800,
+            }
+
+            var chart = new google.visualization.PieChart(document.getElementById("pie_chart"))
+
+            chart.draw(data, options)
+        }
+    </script>
+
+</head>
+<body>
+    <div id="pie_chart"></div>
+</body>
+</html>

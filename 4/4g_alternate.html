@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages':['geochart'],
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+        function drawRegionsMap() {
+            var arrayData = []
+            $.getJSON("Worldjson.json", function(jsonData) {
+                jsonData = jsonData.slice(930)
+                $.each(jsonData, function (k,v) {
+                    if(jsonData[k]['Series'] === 'Population mid-year estimates (millions)' && jsonData[k]['Year'] === 2022) {
+
+                        if(typeof(jsonData[k]['Value']) === 'string') {
+                            arrayData.push([jsonData[k][''] , parseFloat(jsonData[k]['Value'].replaceAll(',',''))])
+                        }
+                        else {
+                            arrayData.push([jsonData[k][''], parseFloat(jsonData[k]['Value'])])
+                        }
+                    }
+                })
+                console.log(arrayData)
+                arrayData.unshift(['Country', 'Population(in millions)'])
+                var data = google.visualization.arrayToDataTable(arrayData);
+                var options = {
+                    title: 'Population of countries',
+                    width: 1000,
+                    height: 800
+                };
+
+                var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+                chart.draw(data, options);
+
+                google.visualization.events.addListener(chart, 'regionClick', function(e) {
+                    getCountryFullName(e.region)
+                })
+                var countrySelect = document.getElementById("regions_div");
+                })
+            
+
+        }
+        function getCountryFullName(countryCode) {
+            // Make a request to the REST Countries API
+            fetch(`https://restcountries.com/v3/alpha/${countryCode}`)
+                .then(response => response.json())
+                .then(data => {
+
+                    const fullName = data[0].name.common;
+                    console.log('Full name:', fullName);
+                })
+                .catch(error => {
+                    console.log('Error:', error);
+                });
+        }
+    </script>
+</head>
+<body>
+<div id="regions_div"></div>
+</body>
+</html>

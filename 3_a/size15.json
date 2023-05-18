@@ -1,0 +1,68 @@
+{
+  "countries": [
+    {
+      "name": "Russia",
+      "size": 17098242
+    },
+    {
+      "name": "Canada",
+      "size": 9976140
+    },
+    {
+      "name": "China",
+      "size": 9640011
+    },
+    {
+      "name": "United States",
+      "size": 9629091
+    },
+    {
+      "name": "Brazil",
+      "size": 8515767
+    },
+    {
+      "name": "Australia",
+      "size": 7692024
+    },
+    {
+      "name": "India",
+      "size": 3287263
+    },
+    {
+      "name": "Argentina",
+      "size": 2780400
+    },
+    {
+      "name": "Kazakhstan",
+      "size": 2724900
+    },
+    {
+      "name": "Algeria",
+      "size": 2381741
+    },
+    {
+      "name": "DR Congo",
+      "size": 2344858
+    },
+    {
+      "name": "Greenland",
+      "size": 2166086
+    },
+    {
+      "name": "Saudi Arabia",
+      "size": 2149690
+    },
+    {
+      "name": "Mexico",
+      "size": 1964375
+    },
+    {
+      "name": "Indonesia",
+      "size": 1904569
+    },
+    {
+      "name": "Others",
+      "size": 35610207
+    }
+  ]
+}

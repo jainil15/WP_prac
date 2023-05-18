@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Country Map</title>
+    <style>
+        #map {
+            height: 400px;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+<h1>Country Map</h1>
+<div id="map"></div>
+<div id="donot_chart"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+    // Initialize the map
+    var map = L.map('map').setView([0, 0], 1);
+
+    // Add a tile layer to the map
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 0.1,
+    }).addTo(map);
+
+    // Initialize the geocoder control
+    var geocoder = L.Control.Geocoder.nominatim();
+
+    // Function to handle map click events
+    function onMapClick(e) {
+        var latlng = e.latlng;
+
+        // Use geocoder to retrieve country information based on coordinates
+        geocoder.reverse(latlng, map.options.crs.scale(map.getZoom()), function (results) {
+            var countryName = '';
+            if (results && results.length > 0) {
+                countryName = results[0].name;
+            }
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable(
+                    [
+                        ['Countries', 'Population'],
+                        ['China', 1444216107],
+                        ['India', 1393409038],
+                        ['United States', 332915073],
+                        ['Indonesia', 276361783],
+                        ['Pakistan', 225199937],
+                        ['Brazil', 213993437],
+                        ['Nigeria', 211400708],
+                        ['Bangladesh', 169303511],
+                        ['Russia', 145912025],
+                        ['Mexico', 130262216]
+                    ]);
+
+                var options = {
+                    title: 'Population Donut Chart',
+                    width: 1000,
+                    height: 800,
+                    pieHole: 0.4,
+                    slices: {
+                        1: {offset: 0.1}
+
+                    }
+                }
+
+                var chart = new google.visualization.PieChart(document.getElementById("donot_chart"))
+
+                chart.draw(data, options)
+            }
+            // Display the country name
+            return countryName;
+
+        });
+    }
+
+    // Add click event listener to the map
+    map.on('click', onMapClick)
+</script>
+</body>
+</html>
+
+// $.each(jsonData, function (k,v) {
+//     if(jsonData[k]['Series'] === 'Life expectancy at birth for males (years)' && jsonData[k][''] === countryName) {
+//         arrayData2.push([jsonData[k]['Year'], parseFloat(jsonData[k]['Value'])])
+//     }
+// })
+// $.each(jsonData, function (k,v) {
+//     if(jsonData[k]['Series'] === 'Life expectancy at birth for females (years)' && jsonData[k][''] === countryName) {
+//         arrayData3.push([jsonData[k]['Year'], parseFloat(jsonData[k]['Value'])])
+//     }
+// })
